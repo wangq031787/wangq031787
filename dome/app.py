@@ -26,5 +26,11 @@ def login():
 def success_page(username):
     return render_template('success.html', username=username)
 
+@app.route('/pag')
+def pag_page():
+    return render_template('pag.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+

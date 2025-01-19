@@ -1,0 +1,475 @@
+<!--
+简介：真实开发的流程和页面分析
+    真实项目开发流程
+        需求评审
+        与UI对接设计图
+        开发页面
+        与后端程序员协调接口协议
+        接入接口数据联调
+        开发完成，提交测试环境，自测完成然后提测
+        解决bug
+        提交预发环境
+        产品，测试确认，与后端一起提交上正式环境（上线）
+    页面分析
+-->
+<!--
+简介：项目初始化和矢量图的使用
+
+    项目初始化
+        新建文件夹
+        初始化css样式
+
+    阿里巴巴矢量库
+
+        地址
+            https://www.iconfont.cn/
+        流程
+            - 注册
+            - 搜索图片
+            - 加入购物车
+            - 添加进项目、选择symbol格式
+            - 生成在线链接
+
+    引入第三方icon
+
+        // 根文件html引入  注意：xxxxxxxx是自己项目的在线链接
+        <script src="http:xxxxxxxx"></script>
+
+        // 使用 注意 xxxx是icon的代码
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#xxxx"></use>
+        </svg>
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灿灿课堂</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stle.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://at.alicdn.com/t/c/font_4702454_pv1eslt5vm.js"></script>
+
+</head>
+
+<body>
+    <div class="ccclass_home">
+        <div class="header_img">
+            <img src="{{ url_for('static', filename='images/hd.jpg') }}" alt="推荐广告">
+        </div>
+        <div class="header_nav">
+            <div class="nav_left">
+                <img src="{{ url_for('static', filename='images/Logo配色图.png') }}" alt="灿灿课堂" title="灿灿课堂">
+                <div>首页</div>
+                <div>课程中心</div>
+                <div>超级会员
+                    <i>hot</i>
+                </div>
+                <div>学习路线
+                    <i>hot</i>
+                </div>
+                <div>一对一辅导
+                    <i>hot</i>
+                </div>
+                <div>工具</div>
+                <div>回答论坛</div>
+                <input type="text" title="搜索">
+                <a href="https://www.gnomic.cn/" target="_blank" title="AI">
+                    搜索
+                    <svg class="sousou" aria-hidden="true">
+                        <use xlink:href="#icon-sousuo"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="nav_right">
+                <div>课程骨折
+                    <i>hot</i>
+                </div>
+                <div>云服务器
+                    <i>hot</i>
+                </div>
+                <div>课程兑换码</div>
+                <div>
+                    <svg class="vip" aria-hidden="true">
+                        <use xlink:href="#icon-VIP"></use>
+                    </svg>
+                </div>
+                <div>我的学习</div>
+                <div>
+                    <img src="https://img.alicdn.com/imgextra/i4/O1CN01aG16y424E11XsURUd_!!6000000007358-2-tps-206-240.png"
+                        alt="个人中心头像" title="个人中心头像">
+                    <img src="{{ url_for('static', filename='images/个人中心头像.png') }}" alt="个人中心头像" title="个人中心头像">
+                </div>
+            </div>
+
+        </div>
+        <div class="banner">
+            <div class="banner_left">
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+                <div class="left_item">
+                    后端架构
+                    <svg class="xiangyou" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="banner_right">
+                <div class="banner_fangxaing">
+                    <svg class="zuo" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangzuoliangci"></use>
+                    </svg>
+                </div>
+                <div>
+                    <a target="_blank" href="https://xdclass.net/videoDetailsPage?id=96" data-v-9e96e0cd="">
+                        <img src="https://file.xdclass.net/xdclass/20240930/YC.jpg" loading="lazy" data-v-9e96e0cd="">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://xdclass.net/videoDetailsPage?id=96" data-v-9e96e0cd="">
+                        <img src="https://file.xdclass.net/xdclass/20240930/ali.jpg" loading="lazy" data-v-9e96e0cd="">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://xdclass.net/videoDetailsPage?id=96" data-v-9e96e0cd="">
+                        <img src="https://file.xdclass.net/xdclass/20240930/JD.jpg" loading="lazy" data-v-9e96e0cd="">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="https://xdclass.net/videoDetailsPage?id=96" data-v-9e96e0cd="">
+                        <img src="https://file.xdclass.net/xdclass/20240930/HY.png" loading="lazy" data-v-9e96e0cd="">
+                    </a>
+                </div>
+                <div class="banner_fangxaing">
+                    <svg class="you" aria-hidden="true">
+                        <use xlink:href="#icon-jiantou_xiangyouliangci"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="host_list">
+            <div class="list_title">
+                <div class="hot_text">热门课程</div>
+                <div class="hot_eng">Hot Courses</div>
+            </div>
+            <div class="list_content">
+                <div class="content_item">
+                    <div class="item_img">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                    </div>
+                    <div class="item_text">
+                        <div class="item_title">
+                            手撕大厂算法-算法刷题大课训练营
+                        </div>
+                        <div class="item_jibie">
+                            <div>级别：高级</div>
+                            <div>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item_number">
+                            <div class="num_left">
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>332
+                            </div>
+                            <div class="num_right">
+                                <span class="left">￥3999</span>
+                                <span class="right">￥2999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_item">
+                    <div class="item_img">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                    </div>
+                    <div class="item_text">
+                        <div class="item_title">
+                            手撕大厂算法-算法刷题大课训练营
+                        </div>
+                        <div class="item_jibie">
+                            <div>级别：高级</div>
+                            <div>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item_number">
+                            <div class="num_left">
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>332
+                            </div>
+                            <div class="num_right">
+                                <span class="left">￥3999</span>
+                                <span class="right">￥2999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_item">
+                    <div class="item_img">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                    </div>
+                    <div class="item_text">
+                        <div class="item_title">
+                            手撕大厂算法-算法刷题大课训练营
+                        </div>
+                        <div class="item_jibie">
+                            <div>级别：高级</div>
+                            <div>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item_number">
+                            <div class="num_left">
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>332
+                            </div>
+                            <div class="num_right">
+                                <span class="left">￥3999</span>
+                                <span class="right">￥2999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_item">
+                    <div class="item_img">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                        <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                            alt="">
+                    </div>
+                    <div class="item_text">
+                        <div class="item_title">
+                            手撕大厂算法-算法刷题大课训练营
+                        </div>
+                        <div class="item_jibie">
+                            <div>级别：高级</div>
+                            <div>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item_number">
+                            <div class="num_left">
+                                <svg class="huo" aria-hidden="true">
+                                    <use xlink:href="#icon-huo"></use>
+                                </svg>332
+                            </div>
+                            <div class="num_right">
+                                <span class="left">￥3999</span>
+                                <span class="right">￥2999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="split_line"></div>
+        <div class="new_list">
+            <div class="list_title">
+                <div class="hot_text">最新课程</div>
+                <div class="hot_eng">New Courses</div>
+            </div>
+            <div class="new_list_con">
+                <div class="list_content">
+                    <div class="content_item">
+                        <div class="item_img">
+                            <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                                alt="">
+                            <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                                alt="">
+                        </div>
+                        <div class="item_text">
+                            <div class="item_title">
+                                手撕大厂算法-算法刷题大课训练营
+                            </div>
+                            <div class="item_jibie">
+                                <div>级别：高级</div>
+                                <div>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="item_number">
+                                <div class="num_left">
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>332
+                                </div>
+                                <div class="num_right">
+                                    <span class="left">￥3999</span>
+                                    <span class="right">￥2999</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feel">
+                            会员免费
+                        </div>
+                    </div>
+                    <div class="content_item">
+                        <div class="item_img">
+                            <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                                alt="">
+                            <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
+                                alt="">
+                        </div>
+                        <div class="item_text">
+                            <div class="item_title">
+                                手撕大厂算法-算法刷题大课训练营
+                            </div>
+                            <div class="item_jibie">
+                                <div>级别：高级</div>
+                                <div>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="item_number">
+                                <div class="num_left">
+                                    <svg class="huo" aria-hidden="true">
+                                        <use xlink:href="#icon-huo"></use>
+                                    </svg>332
+                                </div>
+                                <div class="num_right">
+                                    <span class="left">￥3999</span>
+                                    <span class="right">￥2999</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_item">
+                        <div class="item_img">
+                            <img src="https://file.xdclass.net/video/2024/%E7%AE%97%E6%B3%95.jpg?x-oss-process=image/resize,m_lfit,w_1920,h_1920/format,webp"
